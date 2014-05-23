@@ -17,14 +17,12 @@ class Pep8Linter extends Linter
 
 
   constructor: (editor)->
-    console.log('here i am')
     super(editor)
 
     errorCodes = atom.config.get 'linter-python-pep8.ignoreErrorCodes'
 
     if errorCodes
       @cmd += " --ignore=#{errorCodes.toString()}"
-      console.log('dfdfdfddfdfd')
 
     atom.config.observe 'linter-python-pep8.pep8DirToExecutable', =>
       @executablePath = atom.config.get 'linter-python-pep8.pep8DirToExecutable'

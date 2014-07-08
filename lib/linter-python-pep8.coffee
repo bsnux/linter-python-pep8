@@ -3,7 +3,7 @@ console.log(linterPath)
 Linter = require "#{linterPath}/lib/linter"
 
 class Pep8Linter extends Linter
-  @syntax: ['source.python']
+  @syntax: ['source.python', 'source.python.django']
 
   cmd: 'pep8'
 

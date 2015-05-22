@@ -4,7 +4,6 @@
   "main": "./lib/init",
   "version": "0.2.0",
   "description": "Linting Python files on the fly using pep8 command",
-  "activationEvents": [],
   "repository": "https://github.com/bsnux/linter-python-pep8",
   "license": "MIT",
   "engines": {

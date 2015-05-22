@@ -1,6 +1,8 @@
 module.exports =
-  configDefaults:
-    pep8DirToExecutable: null
+  config:
+    pep8DirToExecutable:
+      type: 'string'
+      default: ''
 
   activate: ->
     console.log 'activate linter-python-pep8'

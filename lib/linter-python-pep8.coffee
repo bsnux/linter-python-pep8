@@ -15,7 +15,6 @@ class Pep8Linter extends Linter
   regex:
     ':(?<line>\\d+):(?<col>\\d+): ((?<error>E\\d+)|(?<warning>W\\d+)) (?<message>.*?)\n'
 
-
   constructor: (editor)->
     super(editor)
 
@@ -24,10 +23,11 @@ class Pep8Linter extends Linter
     if errorCodes
       @cmd += " --ignore=#{errorCodes.toString()}"
 
-    atom.config.observe 'linter-python-pep8.pep8DirToExecutable', =>
+    @configSubscription = atom.config.observe 'linter-python-pep8.pep8DirToExecutable', =>
       @executablePath = atom.config.get 'linter-python-pep8.pep8DirToExecutable'
 
   destroy: ->
-    atom.config.unobserve 'linter-python-pep8.pep8DirToExecutable'
+    super
+    @configSubscription.dispose()
 
 module.exports = Pep8Linter
